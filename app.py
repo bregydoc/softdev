@@ -1,5 +1,5 @@
 from forms import CreateBookForm
-from flask import Flask, request
+from flask import Flask, request, jsonify
 from db import session
 from models import Book
 
@@ -12,6 +12,9 @@ def books():
     if form.validate():
         book = Book(name=form.name.data, availability=form.availability.data,
                     isbn=form.isbn.data, score=form.score.data)
-        # session
 
-    return "error"
+        session.add(book)
+
+        return jsonify({"data": {"book": {"id": book.id, "name": book.name, "isbn": book.isbn, "score": book.score, "availability": book.availability}}})
+
+    return jsonify({"error": "invalid form"})

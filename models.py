@@ -26,4 +26,4 @@ class Autor(Base):
     reviews = Column(Integer)
     publication_date = Column(Date)
 
-    books = relationship("Book", secondary=books_autor_relation)
+    # books = relationship("Book", secondary=books_autor_relation)

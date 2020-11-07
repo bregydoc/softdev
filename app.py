@@ -10,9 +10,8 @@ app = Flask(__name__)
 def books():
     form = CreateBookForm(request.form)
     if form.validate():
-        book = Book(name=form.name.data, availability=form.availability.data,
-                    isbn=form.isbn.data, score=form.score.data)
-
+        book = Book(form.name.data, form.availability.data,
+                    form.isbn.data, form.score.data)
         session.add(book)
 
         return jsonify({"data": {"book": {"id": book.id, "name": book.name, "isbn": book.isbn, "score": book.score, "availability": book.availability}}})

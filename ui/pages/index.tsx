@@ -1,7 +1,8 @@
-import { Box, Center, Heading, List, ListIcon, ListItem, Text } from "@chakra-ui/core";
+import { Box, Button, Center, Flex, Heading, List, ListIcon, ListItem, Text } from "@chakra-ui/core";
 import { CheckCircleIcon } from "@chakra-ui/icons";
 import { NextPage } from "next";
 import React from "react";
+import Link from "next/link";
 
 const IndexPage: NextPage = () => {
     return (
@@ -29,6 +30,11 @@ const IndexPage: NextPage = () => {
                         Chakra
                     </ListItem>
                 </List>
+                <Flex width="100%" mt={4}>
+                    <Link href="/platform">
+                        <Button>Open Solution</Button>
+                    </Link>
+                </Flex>
             </Box>
         </Center>
     );
